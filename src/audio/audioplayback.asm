@@ -5,8 +5,9 @@
 
 	uj	start
 
-; Note frequencies mapped to buzzer values
+; Note period mapped to buzzer values
 ; Formula: frequency_value = 10094 / desired_Hz (possibly, needs verification)
+; These were supposed to be frequencies, but upon inspection they more like periodic times.
 ; Calibration constant: 10094
 .const NOTE_A4		10		; 980 Hz (measured: 980)
 .const NOTE_G4_SHARP	11		; ~917 Hz
