@@ -26,8 +26,10 @@
 
 ; Note durations
 ; WARN: 	The durations are problematic because when we use CPU operations for both tune frequency and length, these two variables affect each other!
-;		Also, mind the fact that MERA-400 is asynchronous, so it is easy to make it go out of tune and rythm.
-;		Since recently, some sort of Amepol real-time clock emulation was added, maybe it could be used to control the durations in a more deterministic manner.
+;			Using the RTC interrupt generator (5th bit on RZ register, apparently - according to DTR) could help control the durations in a deterministic manner.
+;			According to DTR, the clock can fire an interrupt every 20, 10, 8, 4 or 2 miliseconds - for best precision, I guess 2 miliseconds should be used.
+;			That is to be configured within em400 config file, probably with "clock_period = 10" in "[cpu]" block. To be consulted. 
+
 .const WHOLE		13104
 .const HALF		6552
 .const QUARTER		3276
