@@ -26,7 +26,7 @@
 
 ; Note durations
 ; WARN: 	The durations are problematic because when we use CPU operations for both tune frequency and length, these two variables affect each other!
-;		Also, mind the fact that MERA-400 is asynchronous, so it is easy to make it go out of tune.
+;		Also, mind the fact that MERA-400 is asynchronous, so it is easy to make it go out of tune and rythm.
 ;		Since recently, some sort of Amepol real-time clock emulation was added, maybe it could be used to control the durations in a more deterministic manner.
 .const WHOLE		13104
 .const HALF		6552
