@@ -44,6 +44,7 @@
 ;			Using the RTC interrupt generator (5th bit on RZ register, apparently - according to DTR) could help control the durations in a deterministic manner.
 ;			According to DTR, the clock can fire an interrupt every 20, 10, 8, 4 or 2 miliseconds - for best precision, I guess 2 miliseconds should be used.
 ;			That is to be configured within em400 config file, probably with "clock_period = 2" in "[cpu]" block. To be consulted. 
+;			Probably one of registers could serve as a counter that would count the interrupts and thus allow for emiting tone with duration precision of ~2 ms
 
 .const WHOLE		13104
 .const HALF		6552
