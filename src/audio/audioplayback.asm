@@ -22,47 +22,11 @@
 
 	.cpu	mera400
 	.include cpu.inc
+	.include constants.inc
 
 	uj	start
 
-; Note period mapped to buzzer values
-; Formula: frequency_value = 10094 / desired_Hz (possibly, needs verification)
-; These were supposed to be frequencies, but upon inspection they more like periodic times.
-; Calibration constant: 10094
-.const NOTE_A4		10		; 980 Hz (measured: 980)
-.const NOTE_G4_SHARP	11		; ~917 Hz
-.const NOTE_B4		17		; ~594 Hz
-.const NOTE_C5		19		; ~531 Hz
-.const NOTE_D5		16		; ~631 Hz
-.const NOTE_E5		15		; ~673 Hz
-.const NOTE_G5		13		; ~776 Hz
 
-.const NOTE_D5_SHARP	16		; 654.7 Hz (measured)
-.const NOTE_F5		14		; 736.8 Hz (measured)
-.const NOTE_F5_SHARP	13		; 786.5 Hz (measured)
-.const NOTE_G5_SHARP	12		; 842.5 Hz (measured)
-.const NOTE_A5_SHARP	11		; 907.8 Hz (measured)
-.const NOTE_C6		9		; 1073.5 Hz (measured)
-
-; Note durations
-; WARN: 	The durations are problematic because when we use CPU operations for both tune frequency and length, these two variables affect each other!
-;			Using the RTC interrupt generator (5th bit on RZ register, apparently - according to DTR) could help control the durations in a deterministic manner.
-;			According to DTR, the clock can fire an interrupt every 20, 10, 8, 4 or 2 miliseconds - for best precision, I guess 2 miliseconds should be used.
-;			That is to be configured within em400 config file, probably with "clock_period = 2" in "[cpu]" block. To be consulted. 
-
-.const WHOLE		13104
-.const HALF		6552
-.const QUARTER		3276
-.const EIGHTH		1638
-.const SIXTEENTH	819
-
-; Rest durations
-.const REST_WHOLE	13104
-.const REST_HALF	6552
-.const REST_QUARTER	3276
-.const REST_EIGHTH	1638
-.const REST_SIXTEENTH	819
-.const REST_SHORT	500
 
 ; Beep sequence data: frequency, beep_duration, silence_duration
 ; This is definitely not Bad Apple!! yet, but it has some slight similarities
